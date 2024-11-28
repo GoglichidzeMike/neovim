@@ -17,12 +17,23 @@ return {
         group_empty = true,
       },
       filters = {
-        dotfiles = true,
+        dotfiles = false,
       },
+      -- Add the necessary options for always showing the active file
+      update_focused_file = {
+        enable = true,  -- Highlight the active file in the tree
+        update_root = false, -- Keep the root folder static
+      },
+      sync_root_with_cwd = true, -- Ensure the root is in sync with the current working directory
     }
 
-    -- Add these lines for the new keybindings
+    -- Existing keybindings
     vim.keymap.set('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', '<leader>E', '<C-w>l', { noremap = true, silent = true })
+
+    -- toggle sidebar
+    vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+    -- Optional: Add a keybinding to reveal the active file manually
+    vim.keymap.set('n', '<leader>r', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
   end,
 }

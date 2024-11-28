@@ -5,7 +5,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       vim.g.material_style = "darker"  -- Choose the variant you want: 'darker', 'lighter', 'oceanic', 'palenight', or 'deep ocean'
-      vim.cmd 'colorscheme material'
+      vim.cmd([[colorscheme material]])
     end,
   },
 }
