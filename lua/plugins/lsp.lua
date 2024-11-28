@@ -141,7 +141,7 @@ return {
       })
 
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'eslint'},  
+  ensure_installed = {'ts_ls', 'eslint'},  
   handlers = {
     lsp_zero.default_setup,
     tsserver = function()
