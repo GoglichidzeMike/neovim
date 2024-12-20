@@ -120,7 +120,7 @@ return {
 
 --      vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
 
-        vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+--      vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
 
         vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
 
@@ -141,7 +141,7 @@ return {
       })
 
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'eslint', 'Rua'},  
+  ensure_installed = {'tsserver', 'eslint', 'lua_ls', 'gopls'},  
   handlers = {
     lsp_zero.default_setup,
     tsserver = function()
