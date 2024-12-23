@@ -55,7 +55,10 @@ return {
       local lsp_attach = function(client, bufnr)
         local opts = {buffer = bufnr}
 
+        vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { desc = "Open Lspsaga Outline" })
+
         vim.keymap.set('n', '<leader>e', vim.diagnostic.goto_next, opts)
+
         vim.keymap.set("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", { buffer = bufnr })
         -- vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
