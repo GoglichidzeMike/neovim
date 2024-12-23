@@ -6,7 +6,6 @@ return {
     config = function()
       local telescope = require('telescope')
       local actions = require('telescope.actions')
-      
       telescope.setup {
         defaults = {
           mappings = {
@@ -18,20 +17,22 @@ return {
         },
         -- Add any other Telescope configurations here
       }
-      
       -- Set up some keymaps
       local builtin = require('telescope.builtin')
-   
 
       vim.keymap.set('n', 'gs', builtin.git_bcommits, {})
 
       vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
       vim.keymap.set('n', '<C-p>', builtin.git_files, {})
       vim.keymap.set('n', '<leader><space>', builtin.buffers, {})
+      -- vim.keymap.set('n', '<leader>ps', function()
+      --     builtin.grep_string({ search = vim.fn.input("Grep > ") })
+      -- end)
+
       vim.keymap.set('n', '<leader>ps', function()
-          builtin.grep_string({ search = vim.fn.input("Grep > ") })
-      end)
-      vim.keymap.set('n', 'gd', function()
+        require('telescope.builtin').live_grep()
+      end, { desc = "Live grep in Telescope prompt" })vim.keymap.set('n', 'gd', function()
+
         require('telescope.builtin').lsp_definitions()
       end, { desc = 'Telescope LSP definitions' })
 
