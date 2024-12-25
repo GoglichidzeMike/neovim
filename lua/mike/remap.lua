@@ -31,3 +31,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 -- Open new split and move to it
 vim.keymap.set('n', '<leader>v', ':vsplit<CR><C-w>l', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>s', ':split<CR><C-w>j', { noremap = true, silent = true })
+
+
+-- Move between splits
+vim.keymap.set('n', '<Tab>', '<C-^>', { noremap = true, silent = true }) -- Use Tab

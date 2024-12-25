@@ -78,11 +78,41 @@ return {
         capabilities = require('cmp_nvim_lsp').default_capabilities()
       })
 
+
 require('mason-lspconfig').setup({
   automatic_installation= true,
-  ensure_installed = {'ts_ls', 'eslint', 'lua_ls', 'gopls'},  
+  ensure_installed = {'ts_ls', 'eslint', 'lua_ls', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
+        gopls = function()
+           require("lspconfig").gopls.setup({
+             on_attach = function(client, bufnr)
+               -- Keymaps
+               local opts = { buffer = bufnr }
+               vim.keymap.set('n', '<leader>f', function()
+                 vim.lsp.buf.format({ bufnr = bufnr })
+               end, opts)
+               -- Autoformat on save
+               if client.supports_method("textDocument/formatting") then
+                 vim.api.nvim_create_autocmd("BufWritePre", {
+                   buffer = bufnr,
+                   callback = function()
+                     vim.lsp.buf.format({ bufnr = bufnr })
+                   end,
+                 })
+               end
+             end,
+             capabilities = require("cmp_nvim_lsp").default_capabilities(),
+             settings = {
+               gopls = {
+                 analyses = {
+                   unusedparams = true,
+                 },
+                 staticcheck = true,
+               },
+             },
+           })
+        end,
     tsserver = function()
       require('lspconfig').ts_ls.setup({
         on_attach = lsp_attach,
