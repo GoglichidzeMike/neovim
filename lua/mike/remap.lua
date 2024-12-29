@@ -15,8 +15,8 @@ vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "W", ":w<CR>", { noremap = true, silent = true })
 
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -35,3 +35,17 @@ vim.keymap.set('n', '<leader>s', ':split<CR><C-w>j', { noremap = true, silent = 
 
 -- Move between splits
 vim.keymap.set('n', '<Tab>', '<C-^>', { noremap = true, silent = true }) -- Use Tab
+
+
+
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
+  if require("luasnip").expand_or_jumpable() then
+    require("luasnip").expand_or_jump()
+  end
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<c-j>", function()
+  if require("luasnip").jumpable(-1) then
+    require("luasnip").jump(-1)
+  end
+end, { silent = true })

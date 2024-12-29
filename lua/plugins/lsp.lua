@@ -84,6 +84,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {'ts_ls', 'eslint', 'lua_ls', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
+
         gopls = function()
            require("lspconfig").gopls.setup({
              on_attach = function(client, bufnr)
@@ -113,7 +114,7 @@ require('mason-lspconfig').setup({
              },
            })
         end,
-    tsserver = function()
+    ts_ls = function()
       require('lspconfig').ts_ls.setup({
         on_attach = lsp_attach,
         capabilities = require('cmp_nvim_lsp').default_capabilities(),

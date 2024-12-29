@@ -10,7 +10,7 @@ return {
     require("neo-tree").setup({
       hide_root_node = true, -- Hide the root node.
       retain_hidden_root_indent = false, -- IF the root node is hidden, keep the indentation anyhow.
-      close_if_last_window = false, -- Close Neo-tree when it's the last window
+      close_if_last_window = true, -- Close Neo-tree when it's the last window
       popup_border_style = "rounded", -- Rounded borders for the floating window
       enable_git_status = true, -- Show git status icons
       enable_diagnostics = true, -- Show diagnostics in the tree
