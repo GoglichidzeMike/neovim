@@ -8,6 +8,7 @@ return {
       local actions = require('telescope.actions')
       telescope.setup {
         defaults = {
+          preview= false,
           mappings = {
             i = {
               ["<C-v>"] = actions.file_vsplit,

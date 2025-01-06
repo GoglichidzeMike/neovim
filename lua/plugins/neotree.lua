@@ -1,5 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  enabled = false,
   branch = "v3.x", -- Always use the latest stable version
   dependencies = {
     "nvim-lua/plenary.nvim",
