@@ -53,3 +53,33 @@ return {
     end,
   },
 }
+
+-- return {
+--  "philosofonusus/morta.nvim",
+--   name = 'morta',
+--   priority = 1000,
+--   opts = {},
+--   config = function()
+--     vim.cmd.colorscheme 'morta'
+--   end,
+-- }
+ --
+   --
+-- return {
+--     "catppuccin/nvim",
+--     name = "catppuccin",
+--     priority = 1000,
+--     config = function()
+--         require("catppuccin").setup({
+--             flavour = "macchiato", -- latte, frappe, macchiato, mocha
+--             transparent_background = false,
+--             integrations = {
+--                 cmp = true,
+--                 treesitter = true,
+--                 telescope = true,
+--             },
+--         })
+--         vim.cmd.colorscheme "catppuccin"
+--     end,
+-- }
+

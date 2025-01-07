@@ -8,6 +8,7 @@ return {
       local actions = require('telescope.actions')
       telescope.setup {
         defaults = {
+          follow = true,  -- Follow symlinks (submodules)
           preview= false,
           mappings = {
             i = {
@@ -16,7 +17,18 @@ return {
             },
           },
         },
-        -- Add any other Telescope configurations here
+      pickers = {
+         live_grep = {
+           preview = true,
+           follow = true,
+           layout_strategy = 'vertical',
+           layout_config = {
+             preview_cutoff = 1,
+             width = 0.9,
+             height = 0.9,
+           }
+         }
+       }        -- Add any other Telescope configurations here
       }
       -- Set up some keymaps
       local builtin = require('telescope.builtin')
